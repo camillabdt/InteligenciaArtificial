@@ -100,7 +100,7 @@ pip install -r requirements.txt
 
 ## 👩‍💻 Autora
 
-**Camilla Borchardt**
+**Camilla Borchhardt Quincozes**
 
 - 📚 Mestranda em Ciência da Computação
 - 🏫 Universidade Federal de Mato Grosso do Sul (UFMS)
