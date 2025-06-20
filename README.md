@@ -97,13 +97,6 @@ pip install -r requirements.txt
 
 ---
 
-## 📌 Observações
-
-- A pasta `venv/` está ignorada por padrão no `.gitignore`.
-- Nenhum dado sensível é versionado.
-- Para autenticação GitHub via terminal, use token pessoal (PAT) no lugar da senha.
-
----
 
 ## 👩‍💻 Autora
 
