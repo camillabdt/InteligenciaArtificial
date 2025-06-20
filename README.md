@@ -1,4 +1,5 @@
-# 🧠 Inteligência Artificial para Detecção de Fake News com XAI
+# 🕵️‍♀️💬 Detecção de Fake News com XAI
+
 
 Este projeto é um estudo aplicado no contexto da disciplina de Inteligência Artificial (UFMS - 2025/1), com foco na aplicação de classificadores supervisionados e técnicas de explicabilidade (XAI) para identificar desinformação em textos jornalísticos.
 
