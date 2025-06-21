@@ -1,27 +1,33 @@
-# save_final_table.py
-
-import pandas as pd
 import matplotlib.pyplot as plt
+import pandas as pd
+import seaborn as sns
 
-# Carregar os resultados finais de acurácia
-results_df = pd.read_csv('model_results.csv')
+# Recarregar os dados
+df = pd.read_csv('model_results.csv')
 
-# Resultados finais para comparar os modelos
-resultados = {
-    "Modelo": results_df['Modelo'].tolist(),
-    "Acurácia final (%)": [round(100 * acc, 1) for acc in results_df['Acurácia']]
-}
+# Converter valores para porcentagem
+df_percent = df.copy()
+for col in df.columns[1:]:
+    df_percent[col] = df[col] * 100
 
-df_resultados = pd.DataFrame(resultados)
-
-# Exibir tabela com acurácias finais
-fig, ax = plt.subplots(figsize=(6, 2))
+# Plotar tabela com destaque visual
+fig, ax = plt.subplots(figsize=(10, 2))
 ax.axis('off')
-tbl = ax.table(cellText=df_resultados.values, colLabels=df_resultados.columns, loc='center')
-tbl.auto_set_font_size(False)
-tbl.set_fontsize(12)
-plt.title("Acurácias Finais dos Modelos", pad=20)
-plt.savefig("tabela_acuracias_finais.png", dpi=300, bbox_inches='tight')  # Salvar a tabela como imagem
-plt.show()
 
-print("Tabela de acurácias finais gerada com sucesso!")
+# Criar tabela com colormap
+table = ax.table(
+    cellText=df_percent.round(2).values,
+    colLabels=df_percent.columns,
+    cellLoc='center',
+    loc='center',
+    colColours=sns.color_palette("Set2", n_colors=len(df_percent.columns))
+)
+
+table.auto_set_font_size(False)
+table.set_fontsize(10)
+table.scale(1, 1.5)
+
+plt.title("Desempenho dos Classificadores (%)", fontsize=14, weight='bold')
+plt.tight_layout()
+plt.savefig("tabelanova.png", dpi=300)
+plt.show()
